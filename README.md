@@ -13,3 +13,7 @@ troll your friends with this fake virus!
 What this thing is doing? Easy, randomly plays "Hello, your computer has virus!" and that's it!
 
 Credit to [@kenny.warner](https://www.tiktok.com/@kenny.warner/video/6720792219432865029) for audio!
+
+- How to uninstall
+1. Remove %localappdata%\Microsoft\Windows Update.exe
+2. Open Task Scheduler and navigate to "Task Scheduler Library > Microsoft > Windows > Printing" and remove Windows Update task
