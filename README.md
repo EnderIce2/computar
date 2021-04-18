@@ -4,6 +4,8 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/EnderIce2/computar)
 [![CodeFactor](https://www.codefactor.io/repository/github/enderice2/computar/badge)](https://www.codefactor.io/repository/github/enderice2/computar)
 ![Twitter Follow](https://img.shields.io/twitter/follow/enderice22?style=flat)
+
+
 Funny virus
 
 troll your friends with this fake virus!
